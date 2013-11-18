@@ -85,7 +85,7 @@ background-image: svgurl('./img/icon.svg') svg(path$p1 fill #00FF00, path$p2 fil
 ```
 
 ##Feedback, issues, bugs, etc.
-Create a issue at this project's [Github page](https://github.com/walle89/svg-stylus/issues).
+Create a issue at SVG Stylus [Github page](https://github.com/walle89/svg-stylus/issues).
 
 ##License (MIT)
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
