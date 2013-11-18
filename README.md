@@ -81,4 +81,4 @@ background-image: svgurl('./img/icon.svg') svg(path$p1 fill #00FF00, path$p2 fil
 ```
 
 ##Feedback, issues, bus, etc.
-Create a issue at this project's [Github page](https://github.com/walle89/svg-stylus/).
+Create a issue at this project's [Github page](https://github.com/walle89/svg-stylus/issues).
