@@ -12,14 +12,13 @@ $ npm install -g svg-stylus
 ```bash
 $ npm install -g https://github.com/walle89/svg-stylus/archive/master.tar.gz
 ```
+##Usage
 
 ###Run the plugin from the command line
 ```bash
 $ stylus -u svg-stylus
 ```
-
-##Usage
-
+###Important notes
 Given the difference in syntax between CSS and Stylus, some adaptions to syntax have been made.
 Available characters which do not yield Stylus syntax errors are fairly few and thus syntax is more limited than in rework-svg.
 
