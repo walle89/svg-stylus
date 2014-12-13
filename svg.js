@@ -1,4 +1,3 @@
-/*jslint vars:true*/
 'use strict';
 
 var _ = require('underscore');
@@ -19,6 +18,7 @@ var SVG_PATTERN = new RegExp(
     '(?:(.*?))?' + '\\s*' +
     '\\))'
 );
+
 
 var SELECTOR_PATTERN = new RegExp(
   '^' +
@@ -160,10 +160,10 @@ function getSvgPropAsJSON(style) {
 /**
  * Replace style declaration value
  * String.replace() method
- * @param match {?} ?
- * @param match {String} ?
- * @param match {String} ?
- * @param match {?} ?
+ * @param match {String} match Matched substring
+ * @param match {String} pre_whitespace Original whitespace
+ * @param match {String} url_match url(...)
+ * @param match {String} svg_style_json SVG style information
  * @returns {String} new declaration value
  */
 function replaceDeclarationValue(match, pre_whitespace, url_match, svg_style_json) {
@@ -184,10 +184,10 @@ function replaceDeclarationValue(match, pre_whitespace, url_match, svg_style_jso
  * @returns {undefined} undefined
  */
 function parseDeclaration(declaration) {
+  // TODO : allow `background` properties
   if (!declaration || declaration.property !== 'background-image') {
     return;
   }
-
   declaration.value = declaration.value.replace(SVG_PATTERN, replaceDeclarationValue);
 }
 
@@ -198,10 +198,12 @@ function parseDeclaration(declaration) {
  * @returns {undefined} undefined
  */
 function parseRule(rule) {
-  if (!rule || !rule.declarations) {
-    return;
+  if (rule.declarations) {
+    rule.declarations.forEach(parseDeclaration);
+  } else if (rule.rules) {
+    // nested rules, e.g. media query block
+    rule.rules.forEach(parseRule);
   }
-  rule.declarations.forEach(parseDeclaration);
 }
 
 
