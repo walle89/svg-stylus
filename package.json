@@ -1,16 +1,22 @@
 {
   "name": "svg-stylus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This project aims to recreate the functionality of rework-svg but adapted to work with Stylus.",
   "license": "MIT",
   "author": {
     "name": "Eric Wallmander",
     "url": "http://wallmander.net/"
   },
-  "contributors": [{
-    "name": "Reine Schellin",
-    "email": "reine@wallmanderco.se"
-  }],
+  "contributors": [
+    {
+      "name": "Reine Schellin",
+      "email": "reine@wallmanderco.se"
+    },
+    {
+      "name": "Phil Gold",
+      "email": "pgold@rubixmedia.com"
+    }
+  ],
   "keywords": [
     "svg",
     "stylus",
@@ -20,10 +26,10 @@
     "encode",
     "github"
   ],
-  "homepage": "https://github.com/walle89/svg-stylus/",
+  "homepage": "https://github.com/pgoldrbx/svg-stylus/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/walle89/svg-stylus.git"
+    "url": "https://github.com/pgoldrbx/svg-stylus.git"
   },
   "main": "index.js",
   "engines": {
@@ -31,10 +37,17 @@
   },
   "dependencies": {
     "rework": "*",
-	"underscore": "*",
+    "underscore": "*",
     "xmldoc": "git://github.com/jankuca/xmldoc.git"
   },
   "bugs": {
     "url": "https://github.com/walle89/svg-stylus/issues/"
-  }
+  },
+  "gitHead": "e1c247dd3ea0b3bcd0835e35ca33c7cb4958ee62",
+  "readme": "#SVG Stylus\n\nThis project aims to recreate the functionality of [rework-svg](https://npmjs.org/package/rework-svg) but adapted to work with [Stylus](http://learnboost.github.io/stylus/).\n\n##Installation\n\n###Node installation\n```bash\n$ npm install -g svg-stylus\n```\n###Node installation (master from Github)\n```bash\n$ npm install -g https://github.com/walle89/svg-stylus/archive/master.tar.gz\n```\n##Usage\n\n###Run the plugin from the command line\n```bash\n$ stylus -u svg-stylus\n```\n###Important notes\nGiven the difference in syntax between CSS and Stylus, some adaptions to syntax have been made.\nAvailable characters which do not yield Stylus syntax errors are fairly few and thus syntax is more limited than in rework-svg.\n\nurl() has been replaced with svgurl() as url() will automatically be base64 encoded.\nThe URL inside svgurl() MUST be surrounded by quotes or Stylus will yield a syntax error.\n\nSVG parameters are given as:\n\n```css\nsvg([selector attribute value [, selector attribute value...]])\n```\n\nThis means selector must be repeated to set multiple attributes.\n\n###Selectors\n\n* tagname\n* tagname#id -> entered as tagname$id, as # yields Stylus syntax error.\n* tagname[attr=\"value\"] -> *Not supported*. [] yields Stylus syntax error.\n* tagname#id[attr=\"value\"] -> *Not supported*. # and [] yields Stylus syntax errors.\n\n###Examples\n\n####SVG file inlined (rework-svg)\n\n```css\nbackground-image: url('./img/icon.svg') svg();\n```\n\n####SVG file inlined (svg-stylus)\n\n```css\nbackground-image svgurl('./img/icon.svg') svg()\n```\n\n---\n\n####All paths filled red (rework-svg)\n```css\nbackground-image: url('./img/icon.svg') svg({\npath { fill: #FF0000; }\n});\n```\n\n####All paths filled red (svg-stylus)\n\n```css\nbackground-image svgurl('./img/icon.svg') svg(path fill #FF0000)\n```\n\n---\n\n####First path filled green, second filled red (rework-svg)\n```css\nbackground-image: url('./img/icon.svg') svg({\n\tpath#p1 { fill: #00FF00; }\n\tpath[id=\"p2\"] { fill: #FF0000; }\n});\n```\n\n####First path filled green, second filled red (svg-stylus)\n```css\nbackground-image: svgurl('./img/icon.svg') svg(path$p1 fill #00FF00, path$p2 fill #FF0000)\n```\n\n##Feedback, issues, bugs, etc.\nCreate a issue at SVG Stylus [Github page](https://github.com/walle89/svg-stylus/issues).\n\n##License (MIT)\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+  "readmeFilename": "README.md",
+  "_id": "svg-stylus@0.0.1",
+  "_shasum": "dedd5323e8edb4fb8c9ec7d682e3fc171d96ffe1",
+  "_from": "../../../../../var/folders/kx/z37vckxx68g63lytvwqp7q140000gn/T/npm-12801-02a2f6a3/1418504562934-0.5456485711038113/e1c247dd3ea0b3bcd0835e35ca33c7cb4958ee62",
+  "_resolved": "git://github.com/pgoldrbx/svg-stylus#e1c247dd3ea0b3bcd0835e35ca33c7cb4958ee62"
 }
