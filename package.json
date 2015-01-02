@@ -1,16 +1,22 @@
 {
   "name": "svg-stylus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This project aims to recreate the functionality of rework-svg but adapted to work with Stylus.",
   "license": "MIT",
   "author": {
     "name": "Eric Wallmander",
     "url": "http://wallmander.net/"
   },
-  "contributors": [{
-    "name": "Reine Schellin",
-    "email": "reine@wallmanderco.se"
-  }],
+  "contributors": [
+    {
+      "name": "Reine Schellin",
+      "email": "reine@wallmanderco.se"
+    },
+    {
+      "name": "Phil Gold",
+      "email": "pgold@rubixmedia.com"
+    }
+  ],
   "keywords": [
     "svg",
     "stylus",
@@ -31,7 +37,7 @@
   },
   "dependencies": {
     "rework": "*",
-	"underscore": "*",
+    "underscore": "*",
     "xmldoc": "git://github.com/jankuca/xmldoc.git"
   },
   "bugs": {
