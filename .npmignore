@@ -9,3 +9,4 @@
 .wafpickle-*
 CVS
 npm-debug.log
+test
