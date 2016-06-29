@@ -1,3 +1,6 @@
+2016.06.29, Version 0.0.3 (Unstable)
+* Resolve relative path
+
 2014.12.09, Version 0.0.2 (Unstable)
 
 * Implemented fix to parse style rules within media queries
