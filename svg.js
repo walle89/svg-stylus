@@ -53,10 +53,10 @@ function parseConfig(options) {
 
 /**
  * Get SVG as ecoded data
+ * @param {String} xml_source XML source of the SVG to operate on
  * @returns {String} encoded image data
  */
-function getStyledSvgAsDataURL(filename, style) {
-  var xml_source = fs.readFileSync(filename, 'utf8');
+function getStyledSvgAsDataURL(xml_source, style) {
   var doc = new xmldoc.XmlDocument(xml_source);
 
   // Populate all SVG styles
@@ -167,13 +167,24 @@ function getSvgPropAsJSON(style) {
  * @returns {String} new declaration value
  */
 function replaceDeclarationValue(match, pre_whitespace, url_match, svg_style_json) {
-  var url = url_match.replace(/^["']|["']$/g, '');
-
   // rewrite param syntax to rework-svg JSON before rework
   var svg_style = rework(getSvgPropAsJSON(svg_style_json)).obj.stylesheet;
-  var filename = _config.base_path ? path.join(_config.base_path, url) : url;
 
-  var svg_data_uri = getStyledSvgAsDataURL(filename, svg_style);
+  var xml_source;
+  if (url_match.indexOf('url(') === 0) { // Assume base64 encoded SVG
+    // Extract base64 string
+    var base64string = url_match.replace(/url\(["']?data:image\/svg\+xml;base64,(.*?)["']?\)/, '$1');
+    // Convert to ASCII
+    xml_source = new Buffer(base64string, 'base64').toString('ascii');
+  }
+  else { // Assume filepath
+    // Remove quotes
+    var url = url_match.replace(/^["']|["']$/g, '');
+    var filename = _config.base_path ? path.join(_config.base_path, url) : url;
+    xml_source = fs.readFileSync(filename, 'utf8');
+  }
+
+  var svg_data_uri = getStyledSvgAsDataURL(xml_source, svg_style);
   return pre_whitespace + 'url(\'' + svg_data_uri + '\')';
 }
 

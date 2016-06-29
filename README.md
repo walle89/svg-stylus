@@ -84,6 +84,16 @@ background-image: url('./img/icon.svg') svg({
 background-image: svgurl('./img/icon.svg') svg(path$p1 fill #00FF00, path$p2 fill #FF0000)
 ```
 
+---
+
+#### Resolving a relative path
+
+The Stylus built-in function `embedurl()` can be used to resolve a relative URL (taking into account Stylus' `options.paths` as well) and pass the SVG data directly to `svg-stylus`:
+
+```css
+background-image svgurl(embedurl('img/icon.svg')) svg(path fill #FF0000)
+```
+
 ##Feedback, issues, bugs, etc.
 Create a issue at SVG Stylus [Github page](https://github.com/walle89/svg-stylus/issues).
 
