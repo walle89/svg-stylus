@@ -1,3 +1,6 @@
+2016.06.30, Version 0.0.4 (Unstable)
+* Updated xmldoc dependency to use https
+
 2016.06.29, Version 0.0.3 (Unstable)
 * Resolve relative path
 
