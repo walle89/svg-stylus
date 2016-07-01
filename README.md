@@ -85,6 +85,12 @@ background-image: svgurl('./img/icon.svg') svg(path$p1 fill #00FF00, path$p2 fil
 ```
 
 ---
+#### Multiple images
+```css
+background-image: svgurl('./img/icon.svg') svg(rect fill #FF0000), svgurl('./img/othericon.svg') svg(rect fill #0000FF);
+```
+
+---
 
 #### Resolving a relative path
 
