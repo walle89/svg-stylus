@@ -9,7 +9,7 @@ var _config = {};
 
 
 var SVG_PATTERN = new RegExp(
-  '(^|\\s)' +
+  '(\\s?)' +
     // url(...)
     '(?:svgurl\\((.*?)\\))' + '\\s+' +
     // svg(...)
@@ -199,7 +199,11 @@ function parseDeclaration(declaration) {
   if (!declaration || declaration.property !== 'background-image') {
     return;
   }
-  declaration.value = declaration.value.replace(SVG_PATTERN, replaceDeclarationValue);
+
+  // allows multiple background images
+  while (SVG_PATTERN.test(declaration.value)) {
+    declaration.value = declaration.value.replace(SVG_PATTERN, replaceDeclarationValue);
+  }
 }
 
 
