@@ -1,6 +1,6 @@
 {
   "name": "svg-stylus",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This project aims to recreate the functionality of rework-svg but adapted to work with Stylus.",
   "license": "MIT",
   "author": {

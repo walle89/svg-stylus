@@ -1,7 +1,14 @@
+2016.07.05, Version 0.0.5 (Unstable)
+
+* Multiple SVG embeds support
+* Tighten dependency versions
+
 2016.06.30, Version 0.0.4 (Unstable)
+
 * Updated xmldoc dependency to use https
 
 2016.06.29, Version 0.0.3 (Unstable)
+
 * Resolve relative path
 
 2014.12.09, Version 0.0.2 (Unstable)
