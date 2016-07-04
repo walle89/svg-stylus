@@ -36,8 +36,8 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "rework": "*",
-    "underscore": "*",
+    "rework": "~1.0.1",
+    "underscore": "~1.8.3",
     "xmldoc": "git+https://github.com/jankuca/xmldoc.git"
   },
   "bugs": {
